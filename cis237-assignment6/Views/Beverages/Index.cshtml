@@ -1,0 +1,88 @@
+﻿@model IEnumerable<cis237_assignment6.Beverage>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="color: midnightblue; font-family: 'Baskerville Old Face';">Index</h2>
+<div class="form-group" style="color: midnightblue; font-family: 'Baskerville Old Face';">
+    <fieldset>
+        <legend style="color: midnightblue; font-family: 'Baskerville Old Face';">Search Filter</legend>
+
+        @*Form to go to filter method with POST request*@
+        @using (
+            Html.BeginForm(
+                "Filter", //Action
+                "Beverages", //Controller
+                FormMethod.Post,
+                new { @class = "form-inline" }
+                )
+            )
+        {
+            @Html.AntiForgeryToken()
+
+
+            <label for="name">Name</label>
+            @Html.TextBox("name", (string)ViewBag.filterName)
+
+            <label for="pack">Pack</label>
+            @Html.TextBox("pack", (string)ViewBag.filterPack)
+
+            <label for="min">Minimum Price</label>
+            @Html.TextBox("min", (string)ViewBag.filterMin)
+
+            <label for="max">Maximum Price</label>
+            @Html.TextBox("max", (string)ViewBag.fitlerMax)
+
+            <input type="submit"
+                   value="Filter"
+                   class="btn btn-info pull-right" />
+        }
+
+    </fieldset>
+
+</div>
+
+<p style="color: midnightblue; font-family: 'Baskerville Old Face'; >
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" style="color: midnightblue; font-family: 'Baskerville Old Face'; font-size: 14pt;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pack)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.active)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pack)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.active)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

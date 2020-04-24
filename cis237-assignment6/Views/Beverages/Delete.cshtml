@@ -1,0 +1,56 @@
+﻿@model cis237_assignment6.Beverage
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 style="color: midnightblue; font-family: 'Baskerville Old Face';">Delete</h2>
+
+<h3 style="color: midnightblue; font-family: 'Baskerville Old Face';">Are you sure you want to delete this?</h3>
+<div>
+    <h4 style="color: midnightblue; font-family: 'Baskerville Old Face';">Beverage</h4>
+    <hr />
+    <dl class="dl-horizontal" style="color: midnightblue; font-family: 'Baskerville Old Face';">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pack)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.active)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="color: midnightblue; font-family: 'Baskerville Old Face';">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
