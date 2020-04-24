@@ -134,7 +134,8 @@ the culprit, but I don't know which ones.
 | **Total**                               | **100**|
 
 ## Outside Resources Used
-
+None used
 
 
 ## Known Problems, Issues, And/Or Errors in the Program
+None that I am aware of. 
